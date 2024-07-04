@@ -1,0 +1,48 @@
+
+@import url('../../../colors.css');
+
+.cart-container {
+    position: relative;
+    margin-left: 3rem;
+    display: flex;
+    align-items: center;
+    /* justify-content: start; */
+}
+.cart{
+    color: #fff;
+    font-size: 1.1rem;     
+}
+
+/* .cart:hover{
+    color: var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+} */
+
+.text-cart {
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: .45rem;
+    background-color: red;
+    border-radius: 50%;
+    font-size: .8rem;
+    padding: .1em .5em; /* Aumentado para asegurar que sea un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(50%, -50%);
+}
+
+/* .cart:hover + .text-cart{
+    font-size: .9rem;
+    padding: .13rem .53rem;
+} */
+
+@media (max-width: 991px) { 
+    .cart-container {
+        margin-left: 0; /* Quitar el margen cuando el menú está colapsado */
+        width: 1.3rem;
+        height: 2.3rem;
+    }
+}

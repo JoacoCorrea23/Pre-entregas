@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+
+:root{
+    --bd-color:#232323;
+    --txt-color: #ffffff;
+    --logo-color:rgba(255,255,255,0.848);
+    --nv-lnk-color:rgba(255,255,255,0.92); 
+    --homeText:rgba(255,255,255,.42);       
+    --bkgnd-btn-home:rgb(36,193,255);
+}

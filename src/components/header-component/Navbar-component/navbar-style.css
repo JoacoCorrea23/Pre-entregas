@@ -1,0 +1,42 @@
+@import url('../../colors.css');
+
+.navbar{
+    padding: .94rem 1.1rem !important;
+    border-bottom: .13rem solid rgba(111, 78, 55, .8);
+    /* border-bottom: .13rem solid rgba(255,255,255,.3); */
+    /* border: 2px solid #6f4e37; */
+}
+
+.logo{
+    font-weight: 600;
+    color: var(--logo-color) !important;
+}
+
+.custom-toggler {    
+    border-color: #fff;
+}
+  
+.custom-toggler .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-item{
+    margin: 0 .63rem;
+}
+
+.myItemLnk{
+    color: white !important;
+}
+
+.navbar .nav-item .nav-link {
+    color: var(--nv-lnk-color) !important; 
+    font-size: .92rem;
+    font-weight: 500;
+}
+
+/* 
+.active{
+    color: rebeccapurple !important;    
+    font-weight: 600 !important;
+} */
+
