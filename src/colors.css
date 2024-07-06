@@ -3,8 +3,10 @@
 :root{
     --bd-color:#232323;
     --txt-color: #ffffff;
+    --caffe-color:rgba(111, 78, 55, .8);
     --logo-color:rgba(255,255,255,0.848);
     --nv-lnk-color:rgba(255,255,255,0.92); 
     --homeText:rgba(255,255,255,.42);       
     --bkgnd-btn-home:rgb(36,193,255);
+    --nv-lnk-color-2: rgb(255,129,57);
 }
