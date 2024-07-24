@@ -1,0 +1,25 @@
+.pheading {
+	text-align: center;
+	margin: 3.13rem;
+	padding-top: 0.94rem;
+	color: #424144;
+}
+
+.sec {
+	padding: 0.63rem 5%;
+}
+
+.products {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.containerLoading {
+	height: 700px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--nv-lnk-color-2);
+	font-weight: 900;
+}

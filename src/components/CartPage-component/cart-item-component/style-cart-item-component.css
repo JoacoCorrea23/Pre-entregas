@@ -1,0 +1,24 @@
+@import url("../../../colors.css");
+
+.product-image {
+	width: 50px !important;
+	height: 50px !important;
+	margin-right: 15px;
+}
+
+.quantity {
+	margin: 0 10px;
+}
+
+a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.titles {
+	color: #000 !important;
+}

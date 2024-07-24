@@ -1,12 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap");
 
-:root{
-    --bd-color:#232323;
-    --txt-color: #ffffff;
-    --caffe-color:rgba(111, 78, 55, .8);
-    --logo-color:rgba(255,255,255,0.848);
-    --nv-lnk-color:rgba(255,255,255,0.92); 
-    --homeText:rgba(255,255,255,.42);       
-    --bkgnd-btn-home:rgb(36,193,255);
-    --nv-lnk-color-2: rgb(255,129,57);
+:root {
+	/* --bd-color:#232323; */
+	--bd-color: white;
+	--bd-color_2: rgb(245, 245, 245); /*Cambiar*/
+	/* --txt-color: #ffffff; */
+	--txt-color: #424144;
+	--caffe-color: rgba(111, 78, 55, 0.8);
+	/* --logo-color: rgba(255, 255, 255, 0.848);
+	--nv-lnk-color: rgba(255, 255, 255, 0.92); */
+	--logo-color: rgba(
+		35,
+		35,
+		35,
+		0.848
+	); /* Color #232323 con 84.8% de opacidad */
+	--nv-lnk-color: rgba(
+		35,
+		35,
+		35,
+		0.92
+	); /* Color #232323 con 92% de opacidad */
+
+	--homeText: rgba(255, 255, 255, 0.42);
+	--bkgnd-btn-home: rgb(36, 193, 255);
+	--nv-lnk-color-2: rgb(255, 129, 57);
 }

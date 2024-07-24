@@ -1,0 +1,68 @@
+.link-card {
+	text-decoration: none;
+}
+.products .card {
+	width: 16.38rem;
+	background: var(--bd-color_2);
+	box-shadow: 0 0.63rem 1.25rem rgba(0, 0, 0, 0.3);
+	border-radius: 0.31rem;
+	padding: 0.31rem;
+	margin-bottom: 1.25rem;
+}
+
+.products .card:hover {
+	cursor: pointer;
+}
+
+.products .card .img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0.5rem;
+	padding-top: 0.6rem;
+}
+/* TODO VER COMO ESTILAR LA IMAGEN */
+.products .card .img img {
+	height: 10rem;
+	width: 75%;
+}
+
+.products .card .size {
+	padding: 0.31rem 1.25rem;
+	opacity: 0.8;
+}
+
+.products .card .title {
+	font-weight: 900;
+	font-size: 1.25rem;
+	color: var(--txt-color);
+	padding: 0 1.25rem;
+}
+
+.products .card .box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.8rem 1.25rem;
+}
+
+.products .card .box .price {
+	color: var(--nv-lnk-color-2);
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.products .card .box .btn {
+	font-size: 0.81rem;
+	color: var(--bd-color);
+	background-color: var(--bkgnd-btn-home);
+	padding: 0.31rem 1.13rem;
+	font-weight: 900;
+	border-radius: 1.25rem;
+}
+
+.products .card .box .btn:hover {
+	color: var(--nv-lnk-color-2);
+	border: 1px solid var(--nv-lnk-color-2) !important;
+	background-color: transparent;
+}

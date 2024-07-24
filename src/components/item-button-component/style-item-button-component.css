@@ -1,0 +1,23 @@
+.tenure-control {
+	margin-bottom: 20px;
+}
+
+.tenure-control p {
+	margin-bottom: 5px;
+}
+
+.tenure-buttons {
+	margin: 5px 0px;
+	display: flex;
+	align-items: center;
+}
+
+.btn:hover {
+	background-color: var(--nv-lnk-color-2);
+	border-color: var(--bd-color);
+}
+
+.tenure-buttons .tenure-value {
+	margin: 0 20px;
+	font-size: 1.2rem;
+}
