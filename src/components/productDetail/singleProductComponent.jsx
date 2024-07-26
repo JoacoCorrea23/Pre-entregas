@@ -1,8 +1,10 @@
 import { Button, Col, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import useFetch from "../../../../customHooks/useFetch";
-import Btn_cantidad from "../../../item-button-component/item-button-component";
+import useFetch from "../../customHooks/useFetch";
+import Btn_cantidad from "../item-button-component/item-button-component";
 import "./singleProductComponent.css";
+// import { useState, useEffect } from "react";
+
 function ProductDetail() {
 	const { id } = useParams();
 	const { data, loading, error } = useFetch(
@@ -16,6 +18,12 @@ function ProductDetail() {
 	if (error) {
 		return <div className="containerLoading"> Error : {error.message} </div>;
 	}
+
+	// const [quantityAdded,setQuantity]=useState(0);
+
+	// const handleOnAdd = (quantity)=>{
+	// 	setQuantity(quantity)
+	// }
 
 	return (
 		<div className="product-card">
@@ -73,7 +81,7 @@ function ProductDetail() {
 							variant="outline-dark"
 							className="add-to-cart-btn"
 						>
-							Add to Cart
+							Agregar al carrito
 						</Button>
 						<Button className="buy-now-btn">Comprar</Button>
 					</div>

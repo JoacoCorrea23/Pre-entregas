@@ -1,15 +1,13 @@
 import { useParams } from "react-router-dom";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import useFetch from "../../customHooks/useFetch";
-import ProductCard from "./otros/ProductCard";
-import "./sectionProductStyle.css";
+import PageContainer from "../PageContainer/PageContainer";
+import "./ProductPageStyle.css";
+
 // import { useEffect } from "react";
 
-function SectionProducto() {
+function ProductPage() {
 	const { id } = useParams();
-	// const { data, loading, error } = useFetch(
-	// 	"https://fakestoreapi.com/products/category/jewelery"
-	// );
-
 	let url;
 
 	if (id === "Todos" || id == null) {
@@ -18,7 +16,6 @@ function SectionProducto() {
 		url = `https://fakestoreapi.com/products/category/${id}`;
 	}
 
-	// url = `https://fakestoreapi.com/products/category/${id}`;
 	const { data, loading, error } = useFetch(url);
 
 	if (loading) {
@@ -30,9 +27,8 @@ function SectionProducto() {
 	}
 
 	return (
-		<div className="info-container">
+		<PageContainer>
 			<h1 className="pheading">Nuestros Productos</h1>
-			{/* <h2>este es el id : {id} : paso algo ?</h2> */}
 			<section className="sec">
 				<ul className="products">
 					{data.map((prod) => (
@@ -48,8 +44,8 @@ function SectionProducto() {
 					))}
 				</ul>
 			</section>
-		</div>
+		</PageContainer>
 	);
 }
 
-export default SectionProducto;
+export default ProductPage;

@@ -1,10 +1,11 @@
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import PageContainer from "../PageContainer/PageContainer";
 import "./style-homeSection.css";
 
 function HomeSection({ text1, text2, text3, text4, PrincipalPicture }) {
 	return (
-		<div className="content-home">
+		<PageContainer>
 			<Row className="content-home2">
 				<Col
 					lg={6}
@@ -44,8 +45,7 @@ function HomeSection({ text1, text2, text3, text4, PrincipalPicture }) {
 					</div>
 				</Col>
 			</Row>
-			<Row></Row>
-		</div>
+		</PageContainer>
 	);
 }
 
