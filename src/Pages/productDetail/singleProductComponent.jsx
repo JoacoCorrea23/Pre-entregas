@@ -1,30 +1,8 @@
 import { Button, Col, Image, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import useFetch from "../../customHooks/useFetch";
-import Btn_cantidad from "../item-button-component/item-button-component";
+import Btn_cantidad from "../../components/item-button-component/item-button-component";
 import "./singleProductComponent.css";
-// import { useState, useEffect } from "react";
 
-function ProductDetail() {
-	const { id } = useParams();
-	const { data, loading, error } = useFetch(
-		`https://fakestoreapi.com/products/${id}`
-	);
-
-	if (loading) {
-		return <div className="containerLoading"> Cargando ... </div>;
-	}
-
-	if (error) {
-		return <div className="containerLoading"> Error : {error.message} </div>;
-	}
-
-	// const [quantityAdded,setQuantity]=useState(0);
-
-	// const handleOnAdd = (quantity)=>{
-	// 	setQuantity(quantity)
-	// }
-
+function ProductDetail({ item }) {
 	return (
 		<div className="product-card">
 			<Row>
@@ -33,7 +11,7 @@ function ProductDetail() {
 					className="image-section"
 				>
 					<Image
-						src={data.image}
+						src={item.image}
 						className="product-image_2"
 					/>
 				</Col>
@@ -41,7 +19,7 @@ function ProductDetail() {
 					md={6}
 					className="details-section"
 				>
-					<h1>{data.title}</h1>
+					<h1>{item.title}</h1>
 					<p className="stars">⭐⭐⭐⭐⭐</p>
 					<Row className="normal-row">
 						<Col
@@ -54,7 +32,7 @@ function ProductDetail() {
 							lg={10}
 							sm={4}
 						>
-							{data.category}
+							{item.category}
 						</Col>
 					</Row>
 					<Row className="normal-row">
@@ -68,14 +46,14 @@ function ProductDetail() {
 							lg={10}
 							sm={4}
 						>
-							${data.price}
+							${item.price}
 						</Col>
 					</Row>
 					<div className="tenure-control">
 						<p>Cantidad :</p>
 						<Btn_cantidad quantity={1} />
 					</div>
-					<p className="booking-info">{data.description}</p>
+					<p className="booking-info">{item.description}</p>
 					<div className="buttons">
 						<Button
 							variant="outline-dark"

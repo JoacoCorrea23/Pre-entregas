@@ -5,12 +5,12 @@ import "./App.css";
 import PrincipalPicture from "./assets/Coffe.png";
 import CartPage from "./components/CartPage-component/CartPage";
 import MyNavbar from "./components/header-component/Navbar-component/MyNavbar";
-import ProductDetail from "./components/productDetail/singleProductComponent";
 import AboutUsPage from "./Pages/AboutUsPage/aboutUsPage";
 import Contacto from "./Pages/ContactPage/contactPage";
 import HomeSection from "./Pages/HomePage/HomePage";
 import NoPage from "./Pages/NoPage/noPageComponent";
-import ProductPage from "./Pages/ProductPage/ProductPage";
+import ProductDetailLogic from "./Pages/productDetail/singleProductComponentLogic";
+import ProductPageLogic from "./Pages/ProductPage/ProductPageLogic";
 
 function App() {
 	const [carrito, setCarrito] = useState([]);
@@ -46,12 +46,12 @@ function App() {
 					<Route
 						exact
 						path="/"
-						element={<ProductPage />}
+						element={<ProductPageLogic />}
 					/>
 					<Route
 						exact
 						path="/productos"
-						element={<ProductPage />}
+						element={<ProductPageLogic />}
 					/>
 					<Route
 						path="/carrito"
@@ -67,11 +67,11 @@ function App() {
 					/>
 					<Route
 						path="/products/:id"
-						element={<ProductDetail />}
+						element={<ProductDetailLogic />}
 					/>
 					<Route
 						path="/products/category/:id"
-						element={<ProductPage />}
+						element={<ProductPageLogic />}
 					/>
 
 					<Route
