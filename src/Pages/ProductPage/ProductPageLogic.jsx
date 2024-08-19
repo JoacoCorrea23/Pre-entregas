@@ -1,19 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../../customHooks/useFetch";
+import useProducts from "../../customHooks/useProducts";
 import ProductPage from "./ProductPage";
 
 function ProductPageLogic() {
 	const { id } = useParams();
-	let url;
-
-	if (id === "Todos" || id == null) {
-		url = "https://fakestoreapi.com/products";
-	} else {
-		url = `https://fakestoreapi.com/products/category/${id}`;
-	}
-
-	const { data, loading, error } = useFetch(url);
+	const { products, loading, error } = useProducts(); // Usamos el hook useProducts para obtener todos los productos
 
 	if (loading) {
 		return <div className="containerLoading"> Cargando ... </div>;
@@ -22,7 +14,17 @@ function ProductPageLogic() {
 	if (error) {
 		return <div className="containerLoading"> Error : {error.message} </div>;
 	}
-	return <ProductPage items={data} />;
+
+	// Decodificamos el id de la URL para convertir "%20" en espacios
+	const decodedId = id ? decodeURIComponent(id) : "Todos";
+
+	// Filtramos productos si hay un id de categoría
+	const filteredProducts =
+		decodedId === "Todos"
+			? products
+			: products.filter((product) => product.categoryName === decodedId);
+
+	return <ProductPage items={filteredProducts} />;
 }
 
 export default ProductPageLogic;

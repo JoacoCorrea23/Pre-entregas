@@ -1,21 +1,16 @@
-import { useParams } from "react-router-dom";
-import useFetch from "../../customHooks/useFetch";
+import { useLocation, useParams } from "react-router-dom";
 import ProductDetail from "./singleProductComponent";
 
 function ProductDetailLogic() {
 	const { id } = useParams();
-	const { data, loading, error } = useFetch(
-		`https://fakestoreapi.com/products/${id}`
-	);
+	const location = useLocation();
+	const product = location.state?.product;
 
-	if (loading) {
-		return <div className="containerLoading"> Cargando ... </div>;
+	if (!product) {
+		return <div className="containerLoading">Producto no encontrado.</div>;
 	}
 
-	if (error) {
-		return <div className="containerLoading"> Error : {error.message} </div>;
-	}
-	return <ProductDetail item={data} />;
+	return <ProductDetail item={product} />;
 }
 
 export default ProductDetailLogic;

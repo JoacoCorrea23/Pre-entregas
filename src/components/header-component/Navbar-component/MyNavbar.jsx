@@ -4,19 +4,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, Outlet } from "react-router-dom";
-import useFetch from "../../../customHooks/useFetch";
+import useCategories from "../../../customHooks/useCategories";
 import Cart from "../cart-component/cart";
 import DropDownComponent from "../dropDownComponent/DropDownComponent";
 import "./navbar-style.css";
 
 function MyNavbar({ titulo, cantItemCart }) {
-	const { data, loading, error } = useFetch(
-		"https://fakestoreapi.com/products/categories"
-	);
+	// const { data, loading, error } = useFetch(
+	// 	"https://fakestoreapi.com/products/categories"
+	// );
 
-	// if (data) {
-	// 	return <div className="containerLoading"> {data.lenght} </div>;
-	// }
+	const { data: categories, loading, error } = useCategories();
 
 	if (loading) {
 		return <div className="containerLoading"> Cargando ... </div>;
@@ -65,28 +63,26 @@ function MyNavbar({ titulo, cantItemCart }) {
 									About Us
 								</Nav.Link>
 							</Nav.Item>
-							{/* <Nav.Item className="nav-item">
-								<Nav.Link
-									className="nav-link"
-									as={Link}
-									to={"productos"}
-								>
-									Products
-								</Nav.Link>
-							</Nav.Item> */}
 							<NavDropdown
 								title="Products"
 								id="basic-nav-dropdown"
 								className="unDropDown"
 								to={/productos/}
 							>
-								{/* TODO ESTO ESTA BIEN ?  VER RESPUESTA  */}
-								{data.map((cat) => (
+								{categories &&
+									categories.map((category) => (
+										<DropDownComponent
+											key={category.id}
+											category={category.name}
+										/>
+										// <li key={category.id}>{category.name}</li>
+									))}
+								{/* {data.map((cat) => (
 									<DropDownComponent
 										key={cat}
 										category={cat}
 									/>
-								))}
+								))} */}
 								<DropDownComponent category={"Todos"} />
 							</NavDropdown>
 							<Nav.Item className="nav-item">

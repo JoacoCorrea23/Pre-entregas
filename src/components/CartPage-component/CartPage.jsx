@@ -4,14 +4,26 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import "./style-cartPage.css";
-// import Card from 'react-bootstrap/Card';
 import ListGroup from "react-bootstrap/ListGroup";
-import Picture from "../../assets/BolsaCoffe.jpg";
+import Row from "react-bootstrap/Row";
+import { clearCart, useCart } from "../../context/CartContext";
 import Cart_item_component from "./cart-item-component/cart-item-component";
+import "./style-cartPage.css";
 
 function CartPage() {
+	const { cart } = useCart(); // Obtener los datos del carrito desde el contexto
+
+	// Calcular el total del carrito
+	const totalItems = cart.length;
+	const totalPrice = cart.reduce(
+		(acc, item) => acc + item.price * item.quantity,
+		0
+	);
+
+	const handleCleanCart = () => {
+		clearCart(); // Llama a la función para vaciar el carrito
+	};
+
 	return (
 		<Container className="shopping-cart-container">
 			<Row>
@@ -30,7 +42,7 @@ function CartPage() {
 							className="header-subtitle"
 							md={2}
 						>
-							3 Items
+							{totalItems} Items
 						</Col>
 					</Row>
 					<Row className="cart-header">
@@ -38,7 +50,7 @@ function CartPage() {
 							className="cart-header-text"
 							md={3}
 						>
-							Product Details
+							Detalle de Producto
 						</Col>
 						<Col
 							className="cart-header-text"
@@ -48,13 +60,13 @@ function CartPage() {
 							className="cart-header-text justify-content-center"
 							md={3}
 						>
-							Quantity
+							Cantidad
 						</Col>
 						<Col
 							className="cart-header-text"
 							md={2}
 						>
-							Price
+							Precio
 						</Col>
 						<Col
 							className="cart-header-text"
@@ -67,37 +79,32 @@ function CartPage() {
 						className="container-item-component"
 						variant="flush"
 					>
-						<Cart_item_component
-							picture={Picture}
-							unitPrice="44.00"
-							totalPrice="88.00"
-							quantity="2"
-							title="Platinum headset"
-							subtitle=""
-						/>
-						<Cart_item_component
-							picture={Picture}
-							unitPrice="44.00"
-							totalPrice="88.00"
-							quantity="2"
-							title="Platinum headset"
-							subtitle=""
-						/>
-						<Cart_item_component
-							picture={Picture}
-							unitPrice="44.00"
-							totalPrice="88.00"
-							quantity="2"
-							title="Platinum Headset"
-							subtitle="PS4"
-						/>
+						{cart.map((item) => (
+							<Cart_item_component
+								key={item.id} // Asegúrate de que cada item tenga un id único
+								item={item}
+							/>
+						))}
 					</ListGroup>
-					<a
-						href="#continue-shopping"
-						className="continue-shopping"
-					>
-						Continue Shopping
-					</a>
+					<Row>
+						<Col>
+							<a
+								href="#continue-shopping"
+								className="continue-shopping"
+							>
+								Continar comprando
+							</a>
+						</Col>
+						<Col>
+							<Button
+								href="#continue-shopping"
+								className="VaciarCarrito"
+								onClick={handleCleanCart}
+							>
+								Vaciar carrito
+							</Button>
+						</Col>
+					</Row>
 				</Col>
 				<Col
 					md={4}
@@ -105,18 +112,18 @@ function CartPage() {
 				>
 					<Card>
 						<Card.Body>
-							<Card.Title>Order Summary</Card.Title>
+							<Card.Title>Resumen de Orden</Card.Title>
 							<ListGroup variant="flush">
 								<ListGroup.Item>
 									<Row>
 										<Col className="blackColor">Items</Col>
-										<Col className="text-right blackColor">3</Col>
+										<Col className="text-right blackColor">{totalItems}</Col>
 									</Row>
 								</ListGroup.Item>
 								<ListGroup.Item>
 									<Row>
-										<Col className="blackColor">Shipping</Col>
-										<Col className="text-right blackColor">£5.00</Col>
+										<Col className="blackColor">Envio</Col>
+										<Col className="text-right blackColor">$5.00</Col>
 									</Row>
 								</ListGroup.Item>
 								<ListGroup.Item>
@@ -125,12 +132,12 @@ function CartPage() {
 											md={4}
 											className="blackColor"
 										>
-											Promo Code
+											Codigo
 										</Col>
 										<Col>
 											<Form.Control
 												type="text"
-												placeholder="Enter your code"
+												placeholder="Ingresa tu codigo"
 											/>
 										</Col>
 									</Row>
@@ -139,14 +146,17 @@ function CartPage() {
 											variant="danger"
 											className="apply-button"
 										>
-											APPLY
+											Aplicar
 										</Button>
 									</Col>
 								</ListGroup.Item>
 								<ListGroup.Item>
 									<Row>
 										<Col className="blackColor">Total Cost</Col>
-										<Col className="text-right blackColor">£462.98</Col>
+										<Col className="text-right blackColor">
+											${totalPrice.toFixed(2) + 5.0}{" "}
+											{/* Sumando el coste del envío */}
+										</Col>
 									</Row>
 								</ListGroup.Item>
 							</ListGroup>
@@ -165,12 +175,3 @@ function CartPage() {
 }
 
 export default CartPage;
-
-{
-	/* <Cart_item_component
-    picture={Picture}
-    unitPrice="44.00"
-    totalPrice="88.00"
-    quantity="2"
-/> */
-}
