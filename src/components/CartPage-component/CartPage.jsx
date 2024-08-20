@@ -166,7 +166,7 @@ function CartPage() {
 								variant="primary"
 								className="checkout-button"
 							>
-								CHECKOUT
+								Pagar
 							</Button>
 						</Card.Body>
 					</Card>
