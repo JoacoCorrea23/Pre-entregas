@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, Outlet } from "react-router-dom";
 import useCategories from "../../../customHooks/useCategories";
+import LoadingSpinner from "../../Spinner-component/Spinner";
 import Cart from "../cart-component/cart";
 import DropDownComponent from "../dropDownComponent/DropDownComponent";
 import "./navbar-style.css";
@@ -17,7 +18,12 @@ function MyNavbar({ titulo, cantItemCart }) {
 	const { data: categories, loading, error } = useCategories();
 
 	if (loading) {
-		return <div className="containerLoading"> Cargando ... </div>;
+		return (
+			<div className="containerLoading">
+				{" "}
+				<LoadingSpinner />{" "}
+			</div>
+		);
 	}
 
 	if (error) {

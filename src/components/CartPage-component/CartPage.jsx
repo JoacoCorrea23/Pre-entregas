@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
+import { Link } from "react-router-dom";
 import { clearCart, useCart } from "../../context/CartContext";
 import Cart_item_component from "./cart-item-component/cart-item-component";
 import "./style-cartPage.css";
@@ -88,12 +89,13 @@ function CartPage() {
 					</ListGroup>
 					<Row>
 						<Col>
-							<a
-								href="#continue-shopping"
+							<Link
 								className="continue-shopping"
+								as={Link}
+								to={`/products/category/Todos`}
 							>
 								Continar comprando
-							</a>
+							</Link>
 						</Col>
 						<Col>
 							<Button

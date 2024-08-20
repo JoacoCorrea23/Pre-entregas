@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import LoadingSpinner from "../../components/Spinner-component/Spinner";
 import useProducts from "../../customHooks/useProducts";
 import ProductPage from "./ProductPage";
 
@@ -8,7 +9,12 @@ function ProductPageLogic() {
 	const { products, loading, error } = useProducts(); // Usamos el hook useProducts para obtener todos los productos
 
 	if (loading) {
-		return <div className="containerLoading"> Cargando ... </div>;
+		return (
+			<div className="containerLoading">
+				{" "}
+				<LoadingSpinner />{" "}
+			</div>
+		);
 	}
 
 	if (error) {
